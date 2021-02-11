@@ -140,6 +140,7 @@ function makeNewRandomPoster() {
 // var showSavedPosterButton = document.querySelector('.show-saved');
 // var makePosterButton = document.querySelector('.show-form');
 // var returnToMainPageButton = document.querySelector('.show-main')
+// var randomPosterButton = document.querySelector('.show-random');
 
 function viewSavedPosters() {
   savedPosterPage.classList.remove('hidden');
@@ -149,13 +150,27 @@ function viewSavedPosters() {
   savePostersButton.classList.add('hidden');
   showSavedPosterButton.classList.add('hidden');
   makePosterButton.classList.add('hidden');
-  returnToMainPageButton.classList.add('hidden');
+  randomPosterButton.classList.add('hidden');
 }
 
 function inputFormView() {
-
+  posterForm.classList.remove('hidden');
+  returnToMainPageButton.classList.remove('hidden');
+  savePostersButton.classList.remove('hidden');
+  savedPosterPage.classList.add('hidden');
+  mainPosterPage.classList.add('hidden');
+  showSavedPosterButton.classList.add('hidden');
+  makePosterButton.classList.add('hidden');
+  randomPosterButton.classList.add('hidden');
 }
 
-function returnToMainPageButton(){
-
+function returnToMainPage(){
+  makePosterButton.classList.remove('hidden');
+  mainPosterPage.classList.remove('hidden');
+  randomPosterButton.classList.remove('hidden');
+  savePostersButton.classList.remove('hidden');
+  showSavedPosterButton.classList.remove('hidden');
+  posterForm.classList.add('hidden');
+  returnToMainPageButton.classList.add('hidden');
+  savedPosterPage.classList.add('hidden');
 }
