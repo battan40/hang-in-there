@@ -1,5 +1,4 @@
 // query selector variables go here 👇
-//Create new query selector variables for image source, title, and tagline, and button in HTML doc
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var tagline = document.querySelector('.poster-quote');
@@ -114,8 +113,15 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
+// var showSavedPosterButton = document.querySelector('.show-saved');
+// var makePosterButton = document.querySelector('.show-form');
+// var returnToMainPageButton = document.querySelector('.show-main');
+showSavedPosterButton.addEventListener('click', viewSavedPosters);
+makePosterButton.addEventListener('click', inputFormView);
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
+returnToMainPageButton.addEventListener('click', returnToMainPage);
 window.addEventListener('load', makeNewRandomPoster);
+
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -130,4 +136,12 @@ function makeNewRandomPoster() {
   image.src = currentPoster.imageURL;
   tagline.innerText = currentPoster.quote;
   title.innerText = currentPoster.title;
+}
+
+function viewSavedPosters(){
+
+}
+
+function inputFormView() {
+
 }
