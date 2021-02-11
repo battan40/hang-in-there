@@ -7,7 +7,10 @@ var randomPosterButton = document.querySelector('.show-random');
 var mainPosterPage = document.querySelector('.main-poster');
 var savedPosterPage = document.querySelector('.saved-posters');
 var posterForm = document.querySelector('.poster-form');
-var savedPostersButton = document.querySelector('.save-poster');
+var savePostersButton = document.querySelector('.save-poster');
+var showSavedPosterButton = document.querySelector('.show-saved');
+var makePosterButton = document.querySelector('.show-form');
+var returnToMainPageButton = document.querySelector('.show-main');
 
 // we've provided you with some data to work with 👇
 var images = [
