@@ -10,7 +10,7 @@ var savePostersButton = document.querySelector('.save-poster');
 var showSavedPosterButton = document.querySelector('.show-saved');
 var makePosterButton = document.querySelector('.show-form');
 var returnToMainPageButton = document.querySelector('.show-main');
-
+var backToMainButton = document.querySelector('.back-to-main');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -117,6 +117,7 @@ showSavedPosterButton.addEventListener('click', viewSavedPosters);
 makePosterButton.addEventListener('click', inputFormView);
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
 returnToMainPageButton.addEventListener('click', returnToMainPage);
+backToMainButton.addEventListener('click', returnToMainPage);
 window.addEventListener('load', makeNewRandomPoster);
 
 // functions and event handlers go here 👇
@@ -133,18 +134,10 @@ function makeNewRandomPoster() {
   tagline.innerText = currentPoster.quote;
   title.innerText = currentPoster.title;
 }
-// var mainPosterPage = document.querySelector('.main-poster');
-// var savedPosterPage = document.querySelector('.saved-posters');
-// var posterForm = document.querySelector('.poster-form');
-// var savePostersButton = document.querySelector('.save-poster');
-// var showSavedPosterButton = document.querySelector('.show-saved');
-// var makePosterButton = document.querySelector('.show-form');
-// var returnToMainPageButton = document.querySelector('.show-main')
-// var randomPosterButton = document.querySelector('.show-random');
 
 function viewSavedPosters() {
   savedPosterPage.classList.remove('hidden');
-  returnToMainPageButton.classList.remove('hidden');
+  backToMainButton.classList.remove('.hidden');
   mainPosterPage.classList.add('hidden');
   posterForm.classList.add('hidden');
   savePostersButton.classList.add('hidden');
@@ -164,12 +157,13 @@ function inputFormView() {
   randomPosterButton.classList.add('hidden');
 }
 
-function returnToMainPage(){
+function returnToMainPage() {
   makePosterButton.classList.remove('hidden');
   mainPosterPage.classList.remove('hidden');
   randomPosterButton.classList.remove('hidden');
   savePostersButton.classList.remove('hidden');
   showSavedPosterButton.classList.remove('hidden');
+  backToMainButton.classList.add('.hidden');
   posterForm.classList.add('hidden');
   returnToMainPageButton.classList.add('hidden');
   savedPosterPage.classList.add('hidden');
