@@ -4,6 +4,10 @@ var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var tagline = document.querySelector('.poster-quote');
 var randomPosterButton = document.querySelector('.show-random');
+var mainPosterPage = document.querySelector('.main-poster');
+var savedPosterPage = document.querySelector('.saved-posters');
+var posterForm = document.querySelector('.poster-form');
+var savedPostersButton = document.querySelector('.save-poster');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -104,21 +108,16 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [];
-//var currentPoster;
+var currentPoster;
 
-//var currentPoster = new Poster(imageURL, title, quote);
 // event listeners go here 👇
-//pageLoad
-//onButtonclick
-
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
 window.addEventListener('load', makeNewRandomPoster);
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-// returns a number value within the arrays length
+
 function makeNewRandomPoster() {
   var i = getRandomIndex(images);
   var t = getRandomIndex(titles);
