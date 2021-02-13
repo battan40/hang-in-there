@@ -124,6 +124,7 @@ randomPosterButton.addEventListener('click', makeNewRandomPoster);
 returnToMainPageButton.addEventListener('click', returnToMainPage);
 backToMainButton.addEventListener('click', returnToMainPage);
 showPosterButton.addEventListener('click', createCustomPoster);
+savePostersButton.addEventListener('click', savePoster);
 window.addEventListener('load', makeNewRandomPoster);
 
 // functions and event handlers go here 👇
@@ -135,10 +136,10 @@ function makeNewRandomPoster() {
   var i = getRandomIndex(images);
   var t = getRandomIndex(titles);
   var q = getRandomIndex(quotes);
-  randomPoster = new Poster(images[i], titles[t], quotes[q]);
-  image.src = randomPoster.imageURL;
-  tagline.innerText = randomPoster.quote;
-  title.innerText = randomPoster.title;
+  currentPoster = new Poster(images[i], titles[t], quotes[q]);
+  image.src = currentPoster.imageURL;
+  tagline.innerText = currentPoster.quote;
+  title.innerText = currentPoster.title;
 }
 
 function viewSavedPosters() {
@@ -184,12 +185,12 @@ function returnToMainPage() {
 
 function createNewPoster(imageURL,title,quote) {
   event.preventDefault()
-  newCustomPoster = new Poster(imageURL, title, quote);
-  newCustomPoster.imageURL = imageURL;
-  newCustomPoster.title = title;
-  newCustomPoster.quote = quote;
-  savedPosters.push(newCustomPoster);
-  return newCustomPoster;
+  currentPoster = new Poster(imageURL, title, quote);
+  currentPoster.imageURL = imageURL;
+  currentPoster.title = title;
+  currentPoster.quote = quote;
+  savedPosters.push(currentPoster);
+  return currentPoster;
 }
 
 function saveData(imageInput,titleInput,quoteInput) {
@@ -202,4 +203,9 @@ function saveData(imageInput,titleInput,quoteInput) {
    image.src = imageInput;
    title.innerText = titleInput;
    tagline.innerText = quoteInput;
+}
+
+function savePoster() {
+  addPoster(currentPoster);
+  displayPosterInSaved();
 }
