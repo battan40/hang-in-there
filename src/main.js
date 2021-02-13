@@ -11,6 +11,10 @@ var showSavedPosterButton = document.querySelector('.show-saved');
 var makePosterButton = document.querySelector('.show-form');
 var returnToMainPageButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
+var showPosterButton = document.querySelector('.make-poster');
+var imageInput = document.getElementById('poster-image-url');
+var titleInput = document.getElementById('poster-title');
+var quoteInput = document.getElementById('poster-quote');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -118,6 +122,7 @@ makePosterButton.addEventListener('click', inputFormView);
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
 returnToMainPageButton.addEventListener('click', returnToMainPage);
 backToMainButton.addEventListener('click', returnToMainPage);
+showPosterButton.addEventListener('click', createCustomPoster);
 window.addEventListener('load', makeNewRandomPoster);
 
 // functions and event handlers go here 👇
@@ -129,10 +134,10 @@ function makeNewRandomPoster() {
   var i = getRandomIndex(images);
   var t = getRandomIndex(titles);
   var q = getRandomIndex(quotes);
-  var currentPoster = new Poster(images[i], titles[t], quotes[q]);
-  image.src = currentPoster.imageURL;
-  tagline.innerText = currentPoster.quote;
-  title.innerText = currentPoster.title;
+  var randomPoster = new Poster(images[i], titles[t], quotes[q]);
+  image.src = randomPoster.imageURL;
+  tagline.innerText = randomPoster.quote;
+  title.innerText = randomPoster.title;
 }
 
 function viewSavedPosters() {
@@ -167,4 +172,39 @@ function returnToMainPage() {
   posterForm.classList.add('hidden');
   returnToMainPageButton.classList.add('hidden');
   savedPosterPage.classList.add('hidden');
+}
+
+ function createCustomPoster() {
+  // images.push(imageInput.value);
+  // titles.push(titleInput.value);
+  // quotes.push(quoteInput.value);
+  createNewPoster(imageInput.value,titleInput.value,quoteInput.value);
+  saveData(imageInput.value,titleInput.value,quoteInput.value);
+  returnToMainPage();
+  displayNewPoster(imageInput.value,titleInput.value,quoteInput.value);
+   console.log(true);
+}
+//
+function createNewPoster(imageURL,title,quote) {
+  var newCustomPoster = new Poster(imageURL, title, quote);
+  newCustomPoster.imageURL = imageURL;
+  newCustomPoster.title = title;
+  newCustomPoster.quote = quote;
+  savedPosters.push(newCustomPoster);
+  console.log(newCustomPoster);
+  return newCustomPoster;
+}
+
+function saveData(imageInput,titleInput,quoteInput) {
+  images.push(imageInput);
+  quotes.push(quoteInput);
+  titles.push(titleInput);
+  console.log(images);
+ }
+
+ function displayNewPoster(imageInput,titleInput,quoteInput) {
+   image.src = imageInput;
+   title.innerText = titleInput;
+   tagline.innerText = quoteInput;
+   console.log(image.src);
 }
