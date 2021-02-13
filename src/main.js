@@ -208,27 +208,31 @@ function saveData(imageInput,titleInput,quoteInput) {
 
 function savePoster() {
   addPoster(currentPoster);
-  displayPosterInSaved(currentPoster);
 }
 
 function addPoster(poster) {
   if (!savedPosters.length) {
     savedPosters.push(poster);
-    console.log(savedPosters);
-  } else {
+  displayPosterInSaved(currentPoster);
+}
     for (var i = 0; i < savedPosters.length; i++){
-      if (poster.imageURL !== savedPoster[i].imageURL || poster.title !== savedPoster[i].title || poster.quote !== savedPoster[i].quote){
-      savedPosters.push(poster);
-      console.log(savedPosters);
-     }
+      if (poster.imageURL === savedPosters[i].imageURL && poster.title ===     savedPosters[i].title && poster.quote === savedPosters[i].quote) {
+        return savedPosters;
+      } else  {
+         savedPosters.push(poster);
+         displayPosterInSaved(currentPoster);
     }
   }
 }
 
-displayPosterInSaved(poster) {
-  // element.insertAdjacentHTML(position, text)
-  var posterGrid = `<div id="${poster.id}"> <img src=${poster.imageURL}/> <h1>${poster.title}</h1> <h2>
-  ${poster.quote}</h2> </div>`;
-  // savedPostersGrid.innerHTML = posterGrid;
-  savedPostersGrid.insertAdjacentHTML('beforeend', posterGrid);
+function displayPosterInSaved(poster) {
+  console.log("parameter", poster)
+  console.log("array", savedPosters);
+  var posterGrid = `
+    <div class="mini-poster" id="${poster.id}">
+      <img src=${poster.imageURL}>
+      <h2>${poster.title}</h2>
+      <h4>${poster.quote}</h4>
+    </div>`;
+  savedPostersGrid.insertAdjacentHTML('afterbegin', posterGrid);
 }
