@@ -207,5 +207,20 @@ function saveData(imageInput,titleInput,quoteInput) {
 
 function savePoster() {
   addPoster(currentPoster);
-  displayPosterInSaved();
+  console.log(true);
+  // displayPosterInSaved();
+}
+
+function addPoster(poster) {
+  if (!savedPosters.length) {
+    savedPosters.push(poster);
+    console.log(savedPosters);
+  } else {
+    for (var i = 0; i < savedPosters.length; i++){
+      if (poster.imageURL !== savedPoster[i].imageURL || poster.title !== savedPoster[i].title || poster.quote !== savedPoster[i].quote){
+      savedPosters.push(poster);
+      console.log(savedPosters);
+     }
+    }
+  }
 }
