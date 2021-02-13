@@ -15,6 +15,7 @@ var showPosterButton = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
+var savedPostersGrid = document.querySelector('.saved-posters-grid');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -207,8 +208,7 @@ function saveData(imageInput,titleInput,quoteInput) {
 
 function savePoster() {
   addPoster(currentPoster);
-  console.log(true);
-  // displayPosterInSaved();
+  displayPosterInSaved(currentPoster);
 }
 
 function addPoster(poster) {
@@ -223,4 +223,12 @@ function addPoster(poster) {
      }
     }
   }
+}
+
+displayPosterInSaved(poster) {
+  // element.insertAdjacentHTML(position, text)
+  var posterGrid = `<div id="${poster.id}"> <img src=${poster.imageURL}/> <h1>${poster.title}</h1> <h2>
+  ${poster.quote}</h2> </div>`;
+  // savedPostersGrid.innerHTML = posterGrid;
+  savedPostersGrid.insertAdjacentHTML('beforeend', posterGrid);
 }
