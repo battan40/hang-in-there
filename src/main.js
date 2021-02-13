@@ -11,6 +11,10 @@ var showSavedPosterButton = document.querySelector('.show-saved');
 var makePosterButton = document.querySelector('.show-form');
 var returnToMainPageButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
+var showPosterButton = document.querySelector('.make-poster');
+var imageInput = document.querySelector('#poster-image-url');
+var titleInput = document.querySelector('#poster-title');
+var quoteInput = document.querySelector('#poster-quote');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
