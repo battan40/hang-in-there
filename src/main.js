@@ -113,6 +113,7 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
+
 var savedPosters = [];
 var currentPoster;
 
@@ -134,7 +135,7 @@ function makeNewRandomPoster() {
   var i = getRandomIndex(images);
   var t = getRandomIndex(titles);
   var q = getRandomIndex(quotes);
-  var randomPoster = new Poster(images[i], titles[t], quotes[q]);
+  randomPoster = new Poster(images[i], titles[t], quotes[q]);
   image.src = randomPoster.imageURL;
   tagline.innerText = randomPoster.quote;
   title.innerText = randomPoster.title;
@@ -142,7 +143,7 @@ function makeNewRandomPoster() {
 
 function viewSavedPosters() {
   savedPosterPage.classList.remove('hidden');
-  backToMainButton.classList.remove('.hidden');
+  backToMainButton.classList.remove('hidden');
   mainPosterPage.classList.add('hidden');
   posterForm.classList.add('hidden');
   savePostersButton.classList.add('hidden');
@@ -168,30 +169,26 @@ function returnToMainPage() {
   randomPosterButton.classList.remove('hidden');
   savePostersButton.classList.remove('hidden');
   showSavedPosterButton.classList.remove('hidden');
-  backToMainButton.classList.add('.hidden');
+  backToMainButton.classList.add('hidden');
   posterForm.classList.add('hidden');
   returnToMainPageButton.classList.add('hidden');
   savedPosterPage.classList.add('hidden');
 }
 
  function createCustomPoster() {
-  // images.push(imageInput.value);
-  // titles.push(titleInput.value);
-  // quotes.push(quoteInput.value);
   createNewPoster(imageInput.value,titleInput.value,quoteInput.value);
   saveData(imageInput.value,titleInput.value,quoteInput.value);
   returnToMainPage();
   displayNewPoster(imageInput.value,titleInput.value,quoteInput.value);
-   console.log(true);
 }
-//
+
 function createNewPoster(imageURL,title,quote) {
-  var newCustomPoster = new Poster(imageURL, title, quote);
+  event.preventDefault()
+  newCustomPoster = new Poster(imageURL, title, quote);
   newCustomPoster.imageURL = imageURL;
   newCustomPoster.title = title;
   newCustomPoster.quote = quote;
   savedPosters.push(newCustomPoster);
-  console.log(newCustomPoster);
   return newCustomPoster;
 }
 
@@ -199,12 +196,10 @@ function saveData(imageInput,titleInput,quoteInput) {
   images.push(imageInput);
   quotes.push(quoteInput);
   titles.push(titleInput);
-  console.log(images);
  }
 
  function displayNewPoster(imageInput,titleInput,quoteInput) {
    image.src = imageInput;
    title.innerText = titleInput;
    tagline.innerText = quoteInput;
-   console.log(image.src);
 }
