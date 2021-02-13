@@ -11,10 +11,10 @@ var showSavedPosterButton = document.querySelector('.show-saved');
 var makePosterButton = document.querySelector('.show-form');
 var returnToMainPageButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
-// var showPosterButton = document.querySelector('.make-poster');
-// var imageInput = document.querySelector('#poster-image-url');
-// var titleInput = document.querySelector('#poster-title');
-// var quoteInput = document.querySelector('#poster-quote');
+var showPosterButton = document.querySelector('.make-poster');
+var imageInput = document.querySelector('#poster-image-url');
+var titleInput = document.querySelector('#poster-title');
+var quoteInput = document.querySelector('#poster-quote');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -122,7 +122,7 @@ makePosterButton.addEventListener('click', inputFormView);
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
 returnToMainPageButton.addEventListener('click', returnToMainPage);
 backToMainButton.addEventListener('click', returnToMainPage);
-// showPosterButton.addEventListener('click', createCustomPoster);
+showPosterButton.addEventListener('click', createCustomPoster);
 window.addEventListener('load', makeNewRandomPoster);
 
 
@@ -191,18 +191,22 @@ function returnToMainPage() {
   savedPosterPage.classList.add('hidden');
 }
 
-function createCustomPoster() {
-  createNewPoster(inputImage.value,inputTitle.value,inputQuote.value);
+ function createCustomPoster() {
+  createNewPoster(imageInput.value,titleInput.value,quoteInput.value);
   saveData(newCustomPoster);
   returnToMainPage();
   displayNewPoster(newCustomPoster);
-
+   console.log(true);
 }
-function createNewPoster() {
-  var newCustomPoster = new Poster(images, title, quotes);
-  image = newCustomPoster.imageURL;
-  quote = newCustomPoster.quote;
-  title = newCustomPoster.title;
+//
+function createNewPoster(imageURL,title,quote) {
+  var newCustomPoster = new Poster(imageURL, title, quote);
+  // image.src = newCustomPoster.imageURL.value;
+  // tagline.innerText = newCustomPoster.quote.value;
+  // title.innerText = newCustomPoster.title.value;
+  newCustomPoster.imageURL = imageURL;
+  newCustomPoster.title = title;
+  newCustomPoster.quote = quote;
   savedPosters.push(newCustomPoster);
 }
 
@@ -213,7 +217,7 @@ function saveData(poster) {
  }
 
  function displayNewPoster(poster) {
-   poster.imageURL = image;
-   poster.title = title;
-   poster.quote = quote;
- }
+   poster.imageURL = image.src;
+   poster.title = title.innerText;
+   poster.quote = tagline.innerText;
+}
