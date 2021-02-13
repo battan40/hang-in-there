@@ -175,21 +175,23 @@ function returnToMainPage() {
 }
 
  function createCustomPoster() {
+  // images.push(imageInput.value);
+  // titles.push(titleInput.value);
+  // quotes.push(quoteInput.value);
   createNewPoster(imageInput.value,titleInput.value,quoteInput.value);
   saveData(imageInput.value,titleInput.value,quoteInput.value);
   returnToMainPage();
   displayNewPoster(imageInput.value,titleInput.value,quoteInput.value);
+  displayNewPoster(newCustomPoster);
    console.log(true);
 }
 //
 function createNewPoster(imageURL,title,quote) {
   var newCustomPoster = new Poster(imageURL, title, quote);
-  // image.src = newCustomPoster.imageURL.value;
-  // tagline.innerText = newCustomPoster.quote.value;
-  // title.innerText = newCustomPoster.title.value;
   newCustomPoster.imageURL = imageURL;
   newCustomPoster.title = title;
   newCustomPoster.quote = quote;
+  return newCustomPoster;
   savedPosters.push(newCustomPoster);
 }
 
@@ -203,10 +205,14 @@ function saveData(imageInput,titleInput,quoteInput) {
  }
 
  function displayNewPoster(imageInput,titleInput,quoteInput) {
-   // image.src = poster.imageURL;
-   // title.innerText = poster.title;
-   // tagline.innerText = poster.quote;
+
    image.src = imageInput;
    title.innerText = titleInput;
    tagline.innerText = quoteInput;
+}
+function displayNewPoster(poster) {
+
+  image.src = poster.imageURL;
+  title.innerText = poster.title;
+  tagline.innerText = poster.quote;
 }
