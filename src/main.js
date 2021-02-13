@@ -191,13 +191,29 @@ function returnToMainPage() {
   savedPosterPage.classList.add('hidden');
 }
 
-// function createCustomPoster() {
-//
-//   saveData(inputImage.value,inputTitle.value,inputQuote.value);
-//
-// }
-//
-//
-//  function saveData(image,title,quote) {
-//
-//  }
+function createCustomPoster() {
+  createNewPoster(inputImage.value,inputTitle.value,inputQuote.value);
+  saveData(newCustomPoster);
+  returnToMainPage();
+  displayNewPoster(newCustomPoster);
+
+}
+function createNewPoster() {
+  var newCustomPoster = new Poster(images, title, quotes);
+  image = newCustomPoster.imageURL;
+  quote = newCustomPoster.quote;
+  title = newCustomPoster.title;
+  savedPosters.push(newCustomPoster);
+}
+
+function saveData(poster) {
+  images.push(poster.imageURL);
+  quotes.push(poster.quote);
+  titles.push(poster.title);
+ }
+
+ function displayNewPoster(poster) {
+   poster.imageURL = image;
+   poster.title = title;
+   poster.quote = quote;
+ }
