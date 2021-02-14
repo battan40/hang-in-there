@@ -1,7 +1,7 @@
 // query selector variables go here 👇
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
-var tagline = document.querySelector('.poster-quote');
+var quote = document.querySelector('.poster-quote');
 var randomPosterButton = document.querySelector('.show-random');
 var mainPosterPage = document.querySelector('.main-poster');
 var savedPosterPage = document.querySelector('.saved-posters');
@@ -141,7 +141,7 @@ function makeNewRandomPoster() {
   var q = getRandomIndex(quotes);
   currentPoster = new Poster(images[i], titles[t], quotes[q]);
   image.src = currentPoster.imageURL;
-  tagline.innerText = currentPoster.quote;
+  quote.innerText = currentPoster.quote;
   title.innerText = currentPoster.title;
 }
 
@@ -206,7 +206,7 @@ function saveData(imageInput,titleInput,quoteInput) {
  function displayNewPoster(imageInput,titleInput,quoteInput) {
    image.src = imageInput;
    title.innerText = titleInput;
-   tagline.innerText = quoteInput;
+   quote.innerText = quoteInput;
 }
 
 function savePoster() {
