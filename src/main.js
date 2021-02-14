@@ -16,6 +16,7 @@ var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
 var savedPostersGrid = document.querySelector('.saved-posters-grid');
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -218,26 +219,22 @@ function savePoster() {
 function displaySavedPosters() {
   savedPostersGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
-  var posterGrid = `
-    <div class="mini-poster" id=${savedPosters[i].id}>
-      <img id=${savedPosters[i].id} src=${savedPosters[i].imageURL}>
-      <h2 id=${savedPosters[i].id}>${savedPosters[i].title}</h2>
-      <h4 id=${savedPosters[i].id}>${savedPosters[i].quote}</h4>
-    </div>`;
-  savedPostersGrid.insertAdjacentHTML('afterbegin', posterGrid);
+    var posterGrid = `
+      <div class="mini-poster" id=${savedPosters[i].id}>
+        <img id=${savedPosters[i].id} src=${savedPosters[i].imageURL}>
+        <h2 id=${savedPosters[i].id}>${savedPosters[i].title}</h2>
+        <h4 id=${savedPosters[i].id}>${savedPosters[i].quote}</h4>
+      </div>`;
+      savedPostersGrid.insertAdjacentHTML('afterbegin', posterGrid);
   }
 }
 
 function removePoster(event) {
   var posterId = event.target.id;
-  //var elementId = document.getElementById('posterId');
-  console.log(savedPosters, "before");
   for (var i = 0; i < savedPosters.length; i++) {
     if (`${savedPosters[i].id}` === posterId) {
-      //elementId.remove();
       savedPosters.splice(i,1);
-      console.log(savedPosters, "after");
     }
   }
-  displaySavedPosters()
+  displaySavedPosters();
 }
