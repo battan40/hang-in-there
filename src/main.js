@@ -198,10 +198,10 @@ function saveData(imageInput, titleInput, quoteInput) {
   titles.push(titleInput);
  }
 
- function displayNewPoster(imageInput, titleInput, quoteInput) {
-   image.src = imageInput;
-   title.innerText = titleInput;
-   quote.innerText = quoteInput;
+function displayNewPoster(imageInput, titleInput, quoteInput) {
+  image.src = imageInput;
+  title.innerText = titleInput;
+  quote.innerText = quoteInput;
 }
 
 function savePoster() {
