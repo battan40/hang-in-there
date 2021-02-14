@@ -1,4 +1,3 @@
-// query selector variables go here 👇
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
@@ -17,7 +16,6 @@ var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
 var savedPostersGrid = document.querySelector('.saved-posters-grid');
 
-// we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -119,7 +117,6 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
-// event listeners go here 👇
 showSavedPosterButton.addEventListener('click', viewSavedPosters);
 makePosterButton.addEventListener('click', inputFormView);
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
@@ -130,7 +127,6 @@ savePostersButton.addEventListener('click', savePoster);
 savedPostersGrid.addEventListener('dblclick', removePoster);
 window.addEventListener('load', makeNewRandomPoster);
 
-// functions and event handlers go here 👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
@@ -154,7 +150,6 @@ function viewSavedPosters() {
   makePosterButton.classList.add('hidden');
   randomPosterButton.classList.add('hidden');
   displaySavedPosters();
-
 }
 
 function inputFormView() {
@@ -187,7 +182,7 @@ function returnToMainPage() {
   displayNewPoster(imageInput.value,titleInput.value,quoteInput.value);
 }
 
-function createNewPoster(imageURL,title,quote) {
+function createNewPoster(imageURL, title, quote) {
   event.preventDefault()
   currentPoster = new Poster(imageURL, title, quote);
   currentPoster.imageURL = imageURL;
