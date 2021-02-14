@@ -9,14 +9,14 @@
 * Gain understanding of how to write clean, *DRY* `JavaScript`, and SRP for manipulating data
 * Use provided class by creating object instances, using the new keyword
 * Manipulate `HTML` with `JavaScript` after the page has loaded, adding, removing, and updating elements on the `DOM`
-* Begin to understand the connection between HTML, CSS, and JavaScript
+* Begin to understand the connection between `HTML`, `CSS`, and `JavaScript`
 * Begin to understand how to refactor, debug and review a project to fully understand each piece of style and function
 
 Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
 
 ## Overview
 
-  * This is a paired and student project to help foster the understanding of the nuances of working closely with another person while building and solidifying logic.  We were tasked to build an application that allows the user save, create and randomly generate a motivational poster.  
+  * This is a paired and student project to help foster the understanding of the intricacies of working closely with another person while building and solidifying vanilla `JavaScript` logic.  We were tasked to build an application that allows the user save, create and randomly generate a motivational poster.  
 
 ## Set-up
 
