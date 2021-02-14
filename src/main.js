@@ -149,7 +149,6 @@ function viewSavedPosters() {
   savedPosterPage.classList.remove('hidden');
   backToMainButton.classList.remove('hidden');
   mainPosterPage.classList.add('hidden');
-  posterForm.classList.add('hidden');
   savePostersButton.classList.add('hidden');
   showSavedPosterButton.classList.add('hidden');
   makePosterButton.classList.add('hidden');
