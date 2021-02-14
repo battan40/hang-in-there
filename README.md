@@ -53,7 +53,7 @@ Project spec & rubric can be found [here](https://frontend.turing.io/projects/mo
 ## Preview
 
 <p align="left">Main Page</br>
- <img width="1000" height="500" src="./readme-imgs/mainPageHangInThere.png">
+ <img width="1000" height="500" src="./readme-imgs/Now.png">
 </p>
 <p align="left">Input Form</br>
  <img width="1000" height="500" src="./readme-imgs/FormView-HangInThere.png">
