@@ -16,6 +16,7 @@ var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
 var savedPostersGrid = document.querySelector('.saved-posters-grid');
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -126,6 +127,7 @@ returnToMainPageButton.addEventListener('click', returnToMainPage);
 backToMainButton.addEventListener('click', returnToMainPage);
 showPosterButton.addEventListener('click', createCustomPoster);
 savePostersButton.addEventListener('click', savePoster);
+savedPostersGrid.addEventListener('dblclick', removePoster);
 window.addEventListener('load', makeNewRandomPoster);
 
 // functions and event handlers go here 👇
@@ -152,6 +154,8 @@ function viewSavedPosters() {
   showSavedPosterButton.classList.add('hidden');
   makePosterButton.classList.add('hidden');
   randomPosterButton.classList.add('hidden');
+  displaySavedPosters();
+
 }
 
 function inputFormView() {
@@ -207,32 +211,30 @@ function saveData(imageInput,titleInput,quoteInput) {
 }
 
 function savePoster() {
-  addPoster(currentPoster);
-}
-
-function addPoster(poster) {
-  if (!savedPosters.length) {
-    savedPosters.push(poster);
-  displayPosterInSaved(currentPoster);
-}
-    for (var i = 0; i < savedPosters.length; i++){
-      if (poster.imageURL === savedPosters[i].imageURL && poster.title ===     savedPosters[i].title && poster.quote === savedPosters[i].quote) {
-        return savedPosters;
-      } else  {
-         savedPosters.push(poster);
-         displayPosterInSaved(currentPoster);
-    }
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
   }
 }
 
-function displayPosterInSaved(poster) {
-  console.log("parameter", poster)
-  console.log("array", savedPosters);
-  var posterGrid = `
-    <div class="mini-poster" id="${poster.id}">
-      <img src=${poster.imageURL}>
-      <h2>${poster.title}</h2>
-      <h4>${poster.quote}</h4>
-    </div>`;
-  savedPostersGrid.insertAdjacentHTML('afterbegin', posterGrid);
+function displaySavedPosters() {
+  savedPostersGrid.innerHTML = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    var posterGrid = `
+      <div class="mini-poster" id=${savedPosters[i].id}>
+        <img id=${savedPosters[i].id} src=${savedPosters[i].imageURL}>
+        <h2 id=${savedPosters[i].id}>${savedPosters[i].title}</h2>
+        <h4 id=${savedPosters[i].id}>${savedPosters[i].quote}</h4>
+      </div>`;
+      savedPostersGrid.insertAdjacentHTML('afterbegin', posterGrid);
+  }
+}
+
+function removePoster(event) {
+  var posterId = event.target.id;
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (`${savedPosters[i].id}` === posterId) {
+      savedPosters.splice(i,1);
+    }
+  }
+  displaySavedPosters();
 }
