@@ -176,10 +176,10 @@ function returnToMainPage() {
 }
 
  function createCustomPoster() {
-  createNewPoster(imageInput.value,titleInput.value,quoteInput.value);
-  saveData(imageInput.value,titleInput.value,quoteInput.value);
+  createNewPoster(imageInput.value, titleInput.value, quoteInput.value);
+  saveData(imageInput.value, titleInput.value, quoteInput.value);
   returnToMainPage();
-  displayNewPoster(imageInput.value,titleInput.value,quoteInput.value);
+  displayNewPoster(imageInput.value, titleInput.value, quoteInput.value);
 }
 
 function createNewPoster(imageURL, title, quote) {
@@ -192,13 +192,13 @@ function createNewPoster(imageURL, title, quote) {
   return currentPoster;
 }
 
-function saveData(imageInput,titleInput,quoteInput) {
+function saveData(imageInput, titleInput, quoteInput) {
   images.push(imageInput);
   quotes.push(quoteInput);
   titles.push(titleInput);
  }
 
- function displayNewPoster(imageInput,titleInput,quoteInput) {
+ function displayNewPoster(imageInput, titleInput, quoteInput) {
    image.src = imageInput;
    title.innerText = titleInput;
    quote.innerText = quoteInput;
