@@ -6,9 +6,9 @@
 
 ## Learning Goals
 
-* Gain understanding of how to write clean, DRY JavaScript, and SRP for manipulating data
+* Gain understanding of how to write clean, *DRY* `JavaScript`, and SRP for manipulating data
 * Use provided class by creating object instances, using the new keyword
-* Manipulate HTML with javaScript after the page has loaded, adding, removing, and updating elements on the DOM
+* Manipulate `HTML` with `JavaScript` after the page has loaded, adding, removing, and updating elements on the `DOM`
 * Begin to understand the connection between HTML, CSS, and JavaScript
 * Begin to understand how to refactor, debug and review a project to fully understand each piece of style and function
 
@@ -20,8 +20,31 @@ Project spec & rubric can be found [here](https://frontend.turing.io/projects/mo
 
 ## Set-up
 
-  * Have one partner fork to their local computer the repository found here: https://github.com/turingschool-examples/hang-in-there-boilerplate/
-  *Clone to local
+  * Have one partner fork the repository found here: https://github.com/turingschool-examples/hang-in-there-boilerplate/
+  * Clone to local
+  * `cd` into the repository
   * Open in text editor
-  * Read the README.md
+  * Read the boiler plate README.md
+  * Add all project partners and pm as collaborators
   * In terminal, run command "open index.html" to interact with app.
+
+## Project Links
+
+  * [Repo](https://github.com/battan40/hang-in-there-boilerplate)
+  * [Deployed Page](https://battan40.github.io/hang-in-there-boilerplate/)
+
+## Contributors
+
+  * [Kendall Haworth](https://github.com/kendallha)
+  * [Angela Battillo](https://github.com/battan40)
+
+## Functionality Goals
+
+  * At full functionality a user can randomly generate posters with titles, images, and catch-phrases. Users can also create and save their own posters from the randomly generated posters, as well as from imported images.
+
+## Road Map
+
+  * Future iterations should include implementation of data validation and error handling into the form
+  * Allow the main poster view listens for a click to change image, title or quote and then updates the main page
+  * When a user single clicks a saved poster, they can then view it as larger
+  * Allow users to drag and drop saved posters into whatever order they want them to appear
