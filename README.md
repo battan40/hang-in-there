@@ -48,3 +48,19 @@ Project spec & rubric can be found [here](https://frontend.turing.io/projects/mo
   * Allow the main poster view listens for a click to change image, title or quote and then updates the main page
   * When a user single clicks a saved poster, they can then view it as larger
   * Allow users to drag and drop saved posters into whatever order they want them to appear
+
+
+## Preview
+
+<p align="left">Main Page</br>
+ <img width="1000" height="500" src="./readme-imgs/mainPageHangInThere.png">
+</p>
+<p align="left">Input Form</br>
+ <img width="1000" height="500" src="./readme-imgs/FormView-HangInThere.png">
+</p>
+<p align="left">Saved Poster</br>
+ <img width="1000" height="500" src="./readme-imgs/SavedPosterView-HangInThere.png">
+</p>
+<p align="left">Show Me My Poster -- User Creation</br>
+ <img width="1000" height="500" src="./readme-imgs/UserCreation-HangInThere.png">
+</p>
