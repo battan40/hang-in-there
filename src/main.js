@@ -126,6 +126,7 @@ returnToMainPageButton.addEventListener('click', returnToMainPage);
 backToMainButton.addEventListener('click', returnToMainPage);
 showPosterButton.addEventListener('click', createCustomPoster);
 savePostersButton.addEventListener('click', savePoster);
+// savedPostersGrid.addEventListener('dblclick', removePoster);
 window.addEventListener('load', makeNewRandomPoster);
 
 // functions and event handlers go here 👇
@@ -152,6 +153,8 @@ function viewSavedPosters() {
   showSavedPosterButton.classList.add('hidden');
   makePosterButton.classList.add('hidden');
   randomPosterButton.classList.add('hidden');
+  displayPosterInSaved();
+
 }
 
 function inputFormView() {
@@ -213,26 +216,29 @@ function savePoster() {
 function addPoster(poster) {
   if (!savedPosters.length) {
     savedPosters.push(poster);
-  displayPosterInSaved(currentPoster);
-}
-    for (var i = 0; i < savedPosters.length; i++){
-      if (poster.imageURL === savedPosters[i].imageURL && poster.title ===     savedPosters[i].title && poster.quote === savedPosters[i].quote) {
-        return savedPosters;
-      } else  {
-         savedPosters.push(poster);
-         displayPosterInSaved(currentPoster);
-    }
+    return poster;
   }
-}
+  for (var i = 0; i < savedPosters.length; i++) {
+   if (poster.imageURL === savedPosters[i].imageURL && poster.title === savedPosters[i].title && poster.quote === savedPosters[i].quote) {
+    return savedPosters;
+  } else {
+      savedPosters.push(poster);
+      console.log(savedPosters);
+    }
+  }  console.log(savedPosters, "this is the end");
+ }
 
-function displayPosterInSaved(poster) {
-  console.log("parameter", poster)
-  console.log("array", savedPosters);
+
+function displayPosterInSaved() {
+  // console.log("parameter", poster)
+  // console.log("array", savedPosters);
+  for (var i = 0; i < savedPosters.length; i++) {
   var posterGrid = `
-    <div class="mini-poster" id="${poster.id}">
-      <img src=${poster.imageURL}>
-      <h2>${poster.title}</h2>
-      <h4>${poster.quote}</h4>
+    <div class="mini-poster" id="${savedPosters[i].id}">
+      <img src=${savedPosters[i].imageURL}>
+      <h2>${savedPosters[i].title}</h2>
+      <h4>${savedPosters[i].quote}</h4>
     </div>`;
   savedPostersGrid.insertAdjacentHTML('afterbegin', posterGrid);
+  }
 }
