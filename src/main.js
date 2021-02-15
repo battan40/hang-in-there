@@ -6,11 +6,11 @@ var mainPosterPage = document.querySelector('.main-poster');
 var savedPosterPage = document.querySelector('.saved-posters');
 var posterForm = document.querySelector('.poster-form');
 var savePostersButton = document.querySelector('.save-poster');
-var showSavedPosterButton = document.querySelector('.show-saved');
+var showSavedPostersButton = document.querySelector('.show-saved');
 var makePosterButton = document.querySelector('.show-form');
 var returnToMainPageButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
-var showPosterButton = document.querySelector('.make-poster');
+var showMyPosterButton = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url');
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
@@ -117,12 +117,12 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
-showSavedPosterButton.addEventListener('click', viewSavedPosters);
-makePosterButton.addEventListener('click', inputFormView);
+showSavedPostersButton.addEventListener('click', viewSavedPosters);
+makePosterButton.addEventListener('click', viewInputForm);
 randomPosterButton.addEventListener('click', makeNewRandomPoster);
 returnToMainPageButton.addEventListener('click', returnToMainPage);
 backToMainButton.addEventListener('click', returnToMainPage);
-showPosterButton.addEventListener('click', createCustomPoster);
+showMyPosterButton.addEventListener('click', createCustomPoster);
 savePostersButton.addEventListener('click', savePoster);
 savedPostersGrid.addEventListener('dblclick', removePoster);
 window.addEventListener('load', makeNewRandomPoster);
@@ -146,19 +146,19 @@ function viewSavedPosters() {
   backToMainButton.classList.remove('hidden');
   mainPosterPage.classList.add('hidden');
   savePostersButton.classList.add('hidden');
-  showSavedPosterButton.classList.add('hidden');
+  showSavedPostersButton.classList.add('hidden');
   makePosterButton.classList.add('hidden');
   randomPosterButton.classList.add('hidden');
   displaySavedPosters();
 }
 
-function inputFormView() {
+function viewInputForm() {
   posterForm.classList.remove('hidden');
   returnToMainPageButton.classList.remove('hidden');
   savePostersButton.classList.remove('hidden');
   savedPosterPage.classList.add('hidden');
   mainPosterPage.classList.add('hidden');
-  showSavedPosterButton.classList.add('hidden');
+  showSavedPostersButton.classList.add('hidden');
   makePosterButton.classList.add('hidden');
   randomPosterButton.classList.add('hidden');
 }
@@ -168,7 +168,7 @@ function returnToMainPage() {
   mainPosterPage.classList.remove('hidden');
   randomPosterButton.classList.remove('hidden');
   savePostersButton.classList.remove('hidden');
-  showSavedPosterButton.classList.remove('hidden');
+  showSavedPostersButton.classList.remove('hidden');
   backToMainButton.classList.add('hidden');
   posterForm.classList.add('hidden');
   returnToMainPageButton.classList.add('hidden');
